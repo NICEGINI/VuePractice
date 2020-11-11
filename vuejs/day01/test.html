@@ -3,23 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue.js</title>
+    <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
     <div id="app">
-      <div v-show="isShow">{{msg}}</div>
+      <span>{{ name }}</span><br />
+      <span v-text="id"></span><br />
+      <span v-text="age"></span><br />
+      <input type="number" v-model.number="age" />
     </div>
     <script>
-      /*
-            거짓의 값을 나타내는 것
-            : 0, false, '', null, undefined, NaN
-        */
       new Vue({
         el: '#app',
         data: {
-          isShow: true,
-          msg: '보이나요?',
+          name: '곽충섭',
+          id: 'ssafy',
+          age: '30',
+        },
+        methods: {
+          updateMember(age) {
+            this.age = age;
+          },
         },
       });
     </script>

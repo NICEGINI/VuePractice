@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue.js</title>
+    <!-- 상용버전, 속도와 용량이 최적화됨. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>뷰 적용</h2>
+      <h2>{{ msg }}</h2>
+      <!-- innerText -->
+      <h2 v-text="'text : ' + msg"></h2>
+      <!-- innerHtml -->
+      <h2 v-text="'html : ' + msg"></h2>
+      <h2 v-html="`html : ${msg}`"></h2>
+
+      <div><input type="text" v-model="msg" /></div>
+    </div>
+    <script>
+      let msg = 'vue';
+      let app = document.querySelector('#app');
+      new Vue({
+        el: '#app', // element - Vue를 적용할, css 선택자 + html 엘리먼트
+        data: {
+          msg: 'vue',
+        },
+      });
+    </script>
+  </body>
+</html>
