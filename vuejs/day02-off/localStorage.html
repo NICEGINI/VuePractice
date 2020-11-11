@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    키 : <input type="text" id="key" /><br />
+    값 : <input type="text" id="value" /><br /><br />
+    <button id="addBtn">추가</button>
+    <button id="removeBtn">삭제</button>
+    <button id="clearBtn">전체삭제</button>
+    <button id="viewBtn">조회</button><br />
+    <ul id="dataView"></ul>
+    <script>
+      document.querySelector('#addBtn').onclick = () => {
+        console.log('add');
+        // 키, 값을 로컬저장소에 저장
+        let key = document.querySelector('#key').value;
+        let value = document.querySelector('#value').value;
+        console.log(key, value);
+        localStorage.setItem(key, value);
+      };
+      document.querySelector('#removeBtn').onclick = () => {
+        console.log('remove');
+        let key = document.querySelector('#key').value;
+        localStorage.removeItem(key);
+      };
+      document.querySelector('#clearBtn').onclick = () => {
+        console.log('clear');
+        localStorage.clear();
+      };
+      document.querySelector('#viewBtn').onclick = () => {
+        console.log('view');
+        let liHtml = '';
+        for (let i = 0; i < localStorage.length; i++) {
+          let key = localStorage.key(i);
+          let value = localStorage.getItem(key);
+          liHtml += `<li>${key}: ${value}</li>`;
+          document.querySelector('#dataView').innerHTML = liHtml;
+        }
+      };
+    </script>
+  </body>
+</html>
