@@ -15,7 +15,7 @@
     <div id="app" class="container">
       <h1 class="text-center">Vue를 이용한 게시판</h1>
       <div class="text-align">
-        <template v-for="board in boards" v-if="no === board.no">
+        <template v-for="board in boards" v-if="no == board.no">
           <table class="table table-condensed w-25">
             <tr>
               <th>번호</th>
