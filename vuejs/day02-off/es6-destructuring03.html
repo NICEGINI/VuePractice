@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /** es5까지 주로 사용된 문법 구조 */
+      function showMember(member) {
+        console.log('아이디: ', member.id);
+        console.log('이름: ', member.name);
+        console.log('나이: ', member.age);
+      }
+
+      let member = {
+        id: 'aaa',
+        name: 'bbb',
+        age: '22',
+      };
+
+      /** es6부터 주로 사용하는 문법 - 비구조 할당 (구조 분해 할당) */
+      function showMember2({ id, name, age }) {
+        console.log('아이디: ', id);
+        console.log('이름: ', name);
+        console.log('나이: ', age);
+      }
+
+      /** es6의 문법의 하나 Default-Parameter */
+      function showMember3({ id, name, age, email = '이메일없음' }) {
+        console.log('아이디: ', id);
+        console.log('이름: ', name);
+        console.log('나이: ', age);
+        console.log('이메일: ', email);
+      }
+      showMember(member);
+      showMember2(member);
+      showMember3(member);
+    </script>
+  </body>
+</html>
