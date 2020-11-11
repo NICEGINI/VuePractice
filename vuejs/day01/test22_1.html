@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            접근자 프로퍼티(acessor property)
+            - 객체 안에 값을 설정(set), 추출(get)을 함수로 정의해준다.
+            - 설정된 값을 사용시 함수가 아닌 일반 프로퍼티 처럼 사용한다.
+        */
+      let data = {
+        get insa() {
+          return `${this._name}님 하이`;
+        },
+      };
+
+      console.log(data.insa); // 값이 없으면 undefined
+      data.insa = '충섭'; // set 호출
+      console.log(data.insa); // set 된 값 호출
+      let m = {};
+      m.name = 'test'; // 프로퍼티가 없으면 추가한다.
+      console.log(m.name);
+      delete m.name; // 프로퍼티 삭제
+      console.log(m.name);
+
+      let data2 = {
+        get insa() {
+          return `${this._name}님 하이`;
+        },
+        set insa(name) {
+          this._name = name;
+        },
+      };
+      console.log(data2.insa); // 값이 없으면 undefined
+      data2.insa = '충섭'; // set 호출
+      console.log(data2.insa); // set 된 값 호출
+    </script>
+  </body>
+</html>
