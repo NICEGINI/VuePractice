@@ -1,5 +1,5 @@
 import { title, add, sub } from './test01_module1.js';
-// import { title, add, sub } from './test01_module2.js';
+//import { title, add, sub } from './test01_module2.js';
 console.log(title);
 console.log(add(20, 10));
 console.log(sub(20, 10));
