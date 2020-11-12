@@ -8,19 +8,19 @@
   </head>
   <body>
     <div id="app">
-      <child-comp area="광주" v-bind:msg="msg[parseInt(Math.random() * 4)]"></child-comp>
-      <child-comp area="구미" v-bind:msg="msg[parseInt(Math.random() * 4)]"></child-comp>
-      <child-comp area="대전" v-bind:msg="msg[parseInt(Math.random() * 4)]"></child-comp>
-      <child-comp area="서울" v-bind:msg="msg[parseInt(Math.random() * 4)]"></child-comp>
+      <child-comp area="광주" :message="msg[parseInt(Math.random() * 4)]"></child-comp>
+      <child-comp area="구미" :message="msg[parseInt(Math.random() * 4)]"></child-comp>
+      <child-comp area="대전" :message="msg[parseInt(Math.random() * 4)]"></child-comp>
+      <child-comp area="서울" v-bind:message="msg[parseInt(Math.random() * 4)]"></child-comp>
     </div>
     <template id="ChildComp">
       <div>
-        <h2>SSAFY {{area}}지역 4기 {{msg}}</h2>
+        <h2>SSAFY {{area}}지역 4기 {{message}}</h2>
       </div>
     </template>
     <script>
       Vue.component('child-comp', {
-        props: ['area', 'msg'],
+        props: ['area', 'message'],
         template: '#ChildComp',
       });
       new Vue({
