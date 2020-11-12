@@ -95,9 +95,10 @@
           view() {
             let searchName = document.querySelector('#searchBox').value;
             const member = JSON.parse(localStorage.getItem('member'));
+            this.items = [];
             for (let emp of member.items) {
               if (emp.name.includes(searchName)) {
-                alert('!!');
+                this.items.push(emp);
               }
             }
           },
