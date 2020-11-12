@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Router Test</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>SSAFY - Router</h1>
+      <p>
+        <router-link to="/">HOME</router-link>
+        <router-link to="/board">게시판</router-link>
+        <router-link to="/qna">QnA</router-link>
+        <router-link to="/gallery">앨범</router-link>
+      </p>
+      <router-view></router-view>
+    </div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Router Test</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>SSAFY - Router</h1>
+      <p>
+        <router-link to="/">HOME</router-link>
+        <router-link to="/board">게시판</router-link>
+        <router-link to="/qna">QnA</router-link>
+        <router-link to="/gallery">앨범</router-link>
+      </p>
+      <router-view></router-view>
+    </div>
+    <script>
+      const Main = {
+        template: `<div>메인페이지입니다</div>`,
+      };
+      const Board = {
+        template: `<div>게시판입니다.</div>`,
+      };
+      const Qna = {
+        template: `<div>답변형게시판입니다.</div>`,
+      };
+      const Gallery = {
+        template: `<div>사진게시판입니다.</div>`,
+      };
+
+      const router = new VueRouter({
+        routes: [
+          {
+            path: '/',
+            component: Main,
+          },
+          {
+            path: '/board',
+            component: Board,
+          },
+          {
+            path: '/qna',
+            component: Qna,
+          },
+          {
+            path: '/gallery',
+            component: Gallery,
+          },
+        ],
+      });
+      new Vue({
+        el: '#app',
+        router,
+      });
+    </script>
+  </body>
+</html>
