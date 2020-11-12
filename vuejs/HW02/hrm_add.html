@@ -119,6 +119,7 @@
         el: '#app',
         data: function () {
           return {
+            id: 0,
             name: '',
             email: '',
             hiredate: '',
@@ -181,6 +182,7 @@
             newMember.sequence += 1;
             // 화면 입력된 데이터를 newMember에 추가
             newMember.items.push({
+              id: newMember.sequence,
               name: this.name,
               email: this.email,
               hiredate: this.hiredate,

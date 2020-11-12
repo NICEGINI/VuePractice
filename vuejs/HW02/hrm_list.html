@@ -26,15 +26,15 @@
       <div class="text-center mb-3">
         <div class="row">
           <div class="col-8 text-right">
-            <input type="text" style="width: 300px" />
-            <button id="SearchBtn">검색</button>
+            <input type="text" style="width: 300px" id="searchBox" />
+            <button id="SearchBtn" @click="view">검색</button>
           </div>
           <div class="col-4 text-right">
-            <a href="./hrm_add.html" class="btn btn-primary mx-auto">사원등록</a>
+            <a class="btn btn-primary mx-auto" @click="movePage">사원등록</a>
           </div>
         </div>
       </div>
-      <div v-if="emps.length">
+      <div v-if="items.length">
         <table class="table table-bordered table-condensed">
           <colgroup>
             <col width="20%" />
@@ -50,7 +50,7 @@
             <th>직책</th>
             <th>연봉</th>
           </thead>
-          <tr v-for="(emp, index) in emps" :key="index +'_items'">
+          <tr v-for="(emp, index) in items" :key="index +'_items'">
             <td>
               <a :href="'hrm_detail.html?id=' + emp.id">{{ emp.id }}</a>
             </td>
@@ -64,103 +64,43 @@
       <div v-else>사원이 없습니다.</div>
     </div>
     <script>
-      const emps = [
-        {
-          id: '1',
-          name: '박구곤',
-          deptName: '인사부',
-          title: '사장',
-          salary: '60000',
-        },
-        {
-          id: '18',
-          name: '서정주',
-          deptName: '기획부',
-          title: '사원',
-          salary: '13000',
-        },
-        {
-          id: '19',
-          name: '안창환',
-          deptName: '기획부',
-          title: '사원',
-          salary: '678',
-        },
-        {
-          id: '20',
-          name: '윤정숙',
-          deptName: '기획부',
-          title: '사원',
-          salary: '750',
-        },
-        {
-          id: '21',
-          name: '장현철',
-          deptName: '기획부',
-          title: '사원',
-          salary: '8500',
-        },
-        {
-          id: '23',
-          name: '강연범',
-          deptName: '영업부',
-          title: '사원',
-          salary: '795',
-        },
-        {
-          id: '24',
-          name: '오은경',
-          deptName: '기획부',
-          title: '사원',
-          salary: '860',
-        },
-        {
-          id: '27',
-          name: '장길산',
-          deptName: '영업부',
-          title: '과장',
-          salary: '12345',
-        },
-        {
-          id: '28',
-          name: '장취산',
-          deptName: '영업부',
-          title: '사원',
-          salary: '23244',
-        },
-        {
-          id: '29',
-          name: '김상순',
-          deptName: '기획부',
-          title: '사원',
-          salary: '20000',
-        },
-        {
-          id: '30',
-          name: '장삼봉',
-          deptName: '인사부',
-          title: '사원',
-          salary: '10000',
-        },
-        {
-          id: '31',
-          name: '백소정',
-          deptName: '인사부',
-          title: '사원',
-          salary: '20000',
-        },
-        {
-          id: '33',
-          name: '조현욱',
-          deptName: '회계부',
-          title: '사원',
-          salary: '1500',
-        },
-      ];
       new Vue({
         el: '#app',
-        data: {
-          emps: emps,
+        data: function () {
+          return {
+            items: [],
+          };
+        },
+
+        created() {
+          const member = localStorage.getItem('member');
+          let newMember = {
+            sequence: 0,
+            items: [],
+          };
+          if (member) {
+            newMember = JSON.parse(member);
+          } else {
+            localStorage.setItem('member', JSON.stringify(newMember));
+          }
+          newMember.items.sort((a, b) => {
+            return -(a.id - b.id);
+          });
+          this.items = newMember.items;
+        },
+        methods: {
+          movePage() {
+            location.href = 'hrm_add.html';
+          },
+          view() {
+            let searchName = document.querySelector('#searchBox').value;
+            const member = JSON.parse(localStorage.getItem('member'));
+            for (let emp of member.items) {
+              if (emp.name.includes(searchName)) {
+                alert('!!');
+              }
+            }
+          },
         },
       });
     </script>
