@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>SSAFY HRM</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- https://momentjs.com/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <style>
+      .table th {
+        vertical-align: middle;
+      }
+      th {
+        background-color: rgb(110, 218, 176);
+        text-align: center;
+      }
+      td {
+        text-align: left;
+      }
+      .listArea > td {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app" class="container">
+      <hr />
+      <nav-header></nav-header>
+      <h1 class="text-center">SSAFY HRM</h1>
+      <router-view></router-view>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
