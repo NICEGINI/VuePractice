@@ -30,7 +30,6 @@ export default {
         <button class="btn btn-primary" @click="movePage">등록</button>
       </div>
       </div>
-        
     `,
   created() {
     const board = localStorage.getItem('board');
