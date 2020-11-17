@@ -17,6 +17,8 @@
 <script>
 import { mapGetters } from 'vuex';
 
+//console.dir(mapGetters(['countMsg']));
+
 export default {
   computed: {
     ...mapGetters(['countMsg', 'msg1', 'msg2', 'msg3']),
