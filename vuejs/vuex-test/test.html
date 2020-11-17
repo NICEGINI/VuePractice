@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let m = { name: 'a', age: 1 };
+      let user = { id: 'aaa' };
+      user.name = m.name;
+      user.age = m.age;
+
+      console.dir(user);
+
+      //ES6 : Spread Operator
+      let user2 = { id: 'aaa', ...m };
+      console.dir(user2);
+
+      function mapGetters() {
+        return {
+          msg1: 1,
+          msg2: 2,
+          msg3: 3,
+          countMsg: 4,
+        };
+      }
+      let user3 = { id: 'aaa', ...m, ...mapGetters() };
+      console.dir(user3);
+    </script>
+  </body>
+</html>
