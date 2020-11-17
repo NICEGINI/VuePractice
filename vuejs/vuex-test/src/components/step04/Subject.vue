@@ -8,8 +8,8 @@
 
 <script>
 export default {
-  name: "Subject",
-  props: ["title"],
+  name: 'Subject',
+  props: ['title'],
   data() {
     return {
       count: 0,
@@ -18,17 +18,17 @@ export default {
   methods: {
     addCount: function() {
       this.count += 1;
-      this.$store.commit("ADD_ONE");
+      this.$store.commit('ADD_ONE');
       // this.$store.state.count++;
     },
     addTenCount: function() {
       this.count += 10;
-      this.$store.commit("ADD_COUNT", 10);
+      this.$store.commit('ADD_COUNT', 10);
     },
     addObjCount: function() {
       let num = Math.round(Math.random() * 100);
       this.count += num;
-      this.$store.commit("ADD_OBJ_COUNT", { num });
+      this.$store.commit('ADD_OBJ_COUNT', { num });
     },
   },
 };
