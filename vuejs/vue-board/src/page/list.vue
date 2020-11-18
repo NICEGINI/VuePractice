@@ -45,6 +45,7 @@ export default {
     };
   },
   created() {
+    /*
     http
       .get('/board')
       .then(({ data }) => {
@@ -53,8 +54,19 @@ export default {
       .catch(() => {
         alert('에러가 발생했습니다.');
       });
-  },
+  */
+    this.getboard();
+ },
   methods: {
+    async getboard(){
+      // 위 코드를 async-await로 바꿔보기
+      try {
+        let { data } = await http.get('/board');
+        this.items = data;
+      } catch (error) {
+        alert('에러가 발생했습니다.');
+      }
+    },
     movePage() {
       this.$router.push('/create');
     },
