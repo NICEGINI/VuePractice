@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-// step01;
+//step01;
 // export default new Vuex.Store({
 //   state: {
 //     count: 0,
@@ -76,8 +76,8 @@ Vue.use(Vuex);
 //     ADD_ONE(state) {
 //       state.count += 1;
 //     },
-//     ADD_COUNT(state, num) {
-//       state.count += num;
+//     ADD_COUNT(state, payload) {
+//       state.count += payload;
 //     },
 //     ADD_OBJ_COUNT(state, payload) {
 //       // payload : 객체일때

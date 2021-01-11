@@ -4,11 +4,11 @@
 
 <script>
 export default {
-  name: "Subject",
-  props: ["title"],
+  name: 'Subject',
+  props: ['title'],
   data() {
     return {
-      count: 0
+      count: 0,
     };
   },
   methods: {
@@ -16,8 +16,8 @@ export default {
       this.count += 1;
       // this.$emit("addtotcount");
       this.$store.state.count++;
-    }
-  }
+    },
+  },
 };
 </script>
 

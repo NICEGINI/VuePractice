@@ -10,29 +10,31 @@
  */
 
 function axios(url) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('결과 처리 성공');
-        }, 2000);
-    });
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('결과 처리 성공');
+    }, 2000);
+  });
 }
 
 async function callAxios() {
-    console.log('1');
-    axios('http://localhost:9999/board').then((result) => {
-        console.log(result);
-    });
-    console.log('2');
+  console.log('1');
+  axios('http://localhost:9999/board').then((result) => {
+    console.log(result);
+  });
+  console.log('2');
 
-    // 아래 await 키워드부터 axios 끝날때까지 멈춤.
-    try {
-        let result = await axios('http://localhost:9999/board');
-        console.log('processing axios start');
-        console.log('await: ', result);
-        console.log('processing axios end');
-    } catch {
-        console.log('reject인 경우!');
-    }
+  // 아래 await 키워드부터 axios 끝날때까지 멈춤.
+  try {
+    console.log(1);
+    let result = await axios('http://localhost:9999/board');
+    console.log('processing axios start');
+    console.log('await: ', result);
+    console.log('processing axios end');
+    console.log(2);
+  } catch {
+    console.log('reject인 경우!');
+  }
 }
 
 console.log('callAxios before');

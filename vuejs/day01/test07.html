@@ -1,25 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue.js</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Vue 객체를 마운트할 대상 엘리먼트 -->
     <div id="app">
-        <input type="text" v-model="msg">
-        <div>{{msg}}</div>
+      <!--text, textarea-->
+      <input type="text" v-model="msg" />
+      <div>{{msg}}</div>
+      <hr />
+      <h2>textarea v-model</h2>
+      <textarea rows="5" v-model="msg2"></textarea>
+      <p style="white-space: pre-line">{{msg2}}</p>
+      <hr />
+      <!--checkbox-->
+      <h2>checkbox</h2>
+      <input type="checkbox" id="wm" value="수박" v-model="fruits" />
+      <label for="wm">수박</label>
+      <input type="checkbox" id="bnn" value="바나나" v-model="fruits" />
+      <label for="bnn">바나나</label>
+      <input type="checkbox" id="apple" value="사과" v-model="fruits" />
+      <label for="apple">사과</label>
+      <p>선택한 과일 : {{fruits}}</p>
+      <hr />
+      <!--radio-->
+      <h2>radio</h2>
+      <input type="radio" id="male" value="남자" v-model="gender" />
+      <label for="male">남</label>
+      <input type="radio" id="female" value="여자" v-model="gender" />
+      <label for="female">여</label>
+      <p>선택한 성별 : {{gender}}</p>
+      <hr />
+      <!--하나 선택-->
+      <h2>select</h2>
+      <select v-model="area">
+        <option value="서울">서울</option>
+        <option value="대전">대전</option>
+        <option value="광주">광주</option>
+        <option value="구미">구미</option>
+      </select>
+      <p>공부하는 지역: {{area}}</p>
+      <hr />
+      <!--여러개 선택-->
+      <h2>select multiple</h2>
+      <select v-model="areas" multiple>
+        <option v-for="city in cities" v-bind:value="city.value">{{city.vtext}}</option>
+      </select>
+      <p>희망지역 : {{areas}}</p>
     </div>
     <script>
-        new Vue({
-            el: '#app',
-            data: {
-                msg: 'Hello Vue~!'
-            }
-        });
+      new Vue({
+        el: '#app',
+        data: {
+          msg: 'Hello Vue~!',
+          msg2: '',
+          fruits: [],
+          gender: '',
+          area: '서울',
+          cities: [
+            { vtext: '서울', value: 'seoul' },
+            { vtext: '구미', value: 'gumi' },
+            { vtext: '광주', value: 'gwangju' },
+            { vtext: '대전', value: 'daejeon' },
+          ],
+          areas: [],
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
-

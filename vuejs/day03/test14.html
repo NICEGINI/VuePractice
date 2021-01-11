@@ -42,7 +42,7 @@
         },
         created() {
           axios
-            .get(addr)
+            .get(addr) // 원래는 then(function(response){})
             .then((response) => {
               //console.log(response.data.response.body.items.item);
               this.aptList = response.data.response.body.items.item;

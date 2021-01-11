@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vuejs</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <h2>{{ msg }}</h2>
+      <h2>{{ msg }}</h2>
     </div>
     <script>
-        new Vue({
-            el: '#app',
-            data(){
-                return {
-                    msg: 'Hello Vuejs'
-                };
-            }
-        });
+      // Vue의 인스턴스
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            msg: 'Hello Vuejs',
+          };
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
